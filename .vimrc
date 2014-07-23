@@ -21,6 +21,11 @@ set number
 set history=700
 set undolevels=700
 
+" disable beeping...
+set noerrorbells
+" but visualbell
+set visualbell
+
 " tabs..
 set tabstop=4
 set softtabstop=4
