@@ -10,7 +10,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Syntax highlighting
-syntax on
+syntax enable
+colorscheme wombat256mod
 filetype off
 filetype plugin indent on
 

@@ -5,13 +5,19 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="pascal"
+#if [ "$1" = "nogit" ]
+#then
+     ZSH_THEME="pascal_custom"
+#else 
+#    ZSH_THEME="pascal"
+#    echo "git activated"
+#fi
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 . /Users/pascal/scripts/alias.sh
-
+. /Users/pascal/scripts/locations.sh
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -46,14 +52,14 @@ ZSH_THEME="pascal"
 #  plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
 
+plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-#export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+#export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin ~/bin"
+export PATH=/opt/local/bin:/opt/local/sbin:~/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
@@ -69,3 +75,20 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+netinfo(){
+        echo "--------------- Network Information ---------------"
+        LANIP=`/sbin/ifconfig en0 | awk /'inet / {print $2}'`
+        LANBC=`/sbin/ifconfig en0 | awk /'broadcast/ {print $6}'`
+        MAC=`/sbin/ifconfig en0 | awk /'ether/ {print $2}'`
+        WANIP=`lynx -dump -hiddenlinks=ignore -nolist http://checkip.dyndns.org:8245/ | awk '/Address: /{print $4}'`
+        echo "IP:   $LANIP"
+        echo "BCST: $LANBC"
+        echo "MAC:  $MAC"
+        echo "WAN:  ${WANIP}"
+        echo "---------------------------------------------------"
+}
+
+mkc(){
+    mkdir -p $1
+    cd $1
+}
