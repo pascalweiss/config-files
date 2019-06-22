@@ -1,5 +1,3 @@
-source ~/scripts/scr.sh
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -88,6 +86,6 @@ source $ZSH/oh-my-zsh.sh
 
 #export PATH=~/.local/bin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/Users/pascalweiss/apps/cling-build/builddir/bin:/Users/pascalweiss/scripts/aliases/:/usr/local/Cellar/pyenv-virtualenv/1.1.1/shims:/Users/pascalweiss/.pyenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/MacGPG2/bin:/Users/pascalweiss/.vimpkg/bin
 
-if [ -f "~/.mega_rc" ]; then
-    echo source ~/.mega_rc
+if [ -f "$HOME/.mega_rc" ]; then
+    source ~/.mega_rc
 fi
