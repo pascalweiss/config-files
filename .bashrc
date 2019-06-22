@@ -65,4 +65,3 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 if [ -f "~/.mega_rc" ]; then
     echo source ~/.mega_rc
 fi
-

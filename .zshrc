@@ -84,8 +84,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#export PATH=~/.local/bin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/Users/pascalweiss/apps/cling-build/builddir/bin:/Users/pascalweiss/scripts/aliases/:/usr/local/Cellar/pyenv-virtualenv/1.1.1/shims:/Users/pascalweiss/.pyenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/MacGPG2/bin:/Users/pascalweiss/.vimpkg/bin
-
 if [ -f "$HOME/.mega_rc" ]; then
     source ~/.mega_rc
 fi
