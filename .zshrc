@@ -87,3 +87,5 @@ source $ZSH/oh-my-zsh.sh
 if [ -f "$HOME/.mega_rc" ]; then
     source ~/.mega_rc
 fi
+
+
