@@ -4,10 +4,15 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="fishy"
+# ZSH_THEME="zhann"
+# ZSH_THEME="terminalparty"
+
+ZSH_THEME="mega_terminalparty"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,7 +56,12 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=()
+
+if [ -f "$HOME/.mega_rc" ]; then
+    source ~/.mega_rc
+fi
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,8 +94,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ -f "$HOME/.mega_rc" ]; then
-    source ~/.mega_rc
-fi
-
-
+export ZSH_THEME_GIT_PROMPT_CACHE=yes
