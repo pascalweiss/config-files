@@ -1,7 +1,1 @@
-*
-!.bashrc
-!.zshrc
-!.vim
-!README.MD
-!license.md
-!.gitignore
+.DS_Store
