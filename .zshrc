@@ -8,11 +8,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="fishy"
+# ZSH_THEME="fishy"
 # ZSH_THEME="zhann"
-# ZSH_THEME="terminalparty"
-
-ZSH_THEME="mega_terminalparty"
+ZSH_THEME="candy"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -94,4 +92,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# An environment variable used in the Oh My Zsh framework for Zsh (the Z shell).
+# This variable is related to the Git prompt integration within certain Zsh themes,
+# specifically for themes that display Git repository information directly in the command prompt.
 export ZSH_THEME_GIT_PROMPT_CACHE=yes
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
