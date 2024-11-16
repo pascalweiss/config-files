@@ -56,8 +56,8 @@ ZSH_THEME="candy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=()
 
-if [ -f "$HOME/.mega_rc" ]; then
-    source ~/.mega_rc
+if [ -f "$HOME/.envi_rc" ]; then
+    source ~/.envi_rc
 fi
 
 

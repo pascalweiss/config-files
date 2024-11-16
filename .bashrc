@@ -62,6 +62,6 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 
 # set a fancy prompt (non-color, unless
-if [ -f "~/.mega_rc" ]; then
-    echo source ~/.mega_rc
+if [ -f "~/.envi_rc" ]; then
+    echo source ~/.envi_rc
 fi
