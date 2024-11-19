@@ -1,8 +1,8 @@
 # dotfiles
 ## .zshrc
-Has configurations for 
+Has configurations for
 - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), a fancy framework for zsh
-- [envi-shell](https://github.com/pascalweiss/envi-shell), a set of useful applications and configurations for shells in general
+- [envi-shell](https://github.com/pascalweiss/envi-shell), a set of useful applications and configurations 
 
 ## .bashrc
 - [envi-shell](https://github.com/pascalweiss/envi-shell), a set of useful applications and configurations for shells in general
