@@ -99,5 +99,8 @@ source $ZSH/oh-my-zsh.sh
 export ZSH_THEME_GIT_PROMPT_CACHE=yes
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
-
+if command -v ng > /dev/null 2>&1; then
+    source <(ng completion script)
+else
+    echo "ng command not found. Skipping Angular CLI autocompletion."
+fi
