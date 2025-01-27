@@ -54,7 +54,12 @@ ZSH_THEME="candy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=()
+plugins=(
+  git
+  kubectl
+  zsh-autosuggestions
+)
+
 
 # Setup for my own shell stuff
 if [ -f "$HOME/.envi_rc" ]; then
