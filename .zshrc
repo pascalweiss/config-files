@@ -61,13 +61,12 @@ plugins=(
 )
 
 
+source $ZSH/oh-my-zsh.sh
+
 # Setup for my own shell stuff
 if [ -f "$HOME/.envi_rc" ]; then
     source ~/.envi_rc
 fi
-
-
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -109,3 +108,4 @@ export ZSH_THEME_GIT_PROMPT_CACHE=yes
 # else
 #     echo "ng command not found. Skipping Angular CLI autocompletion."
 # fi
+
