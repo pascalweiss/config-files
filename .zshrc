@@ -1,3 +1,14 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+
+
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -10,7 +21,9 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="fishy"
 # ZSH_THEME="zhann"
-ZSH_THEME="candy"
+# ZSH_THEME="candy"
+
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -61,12 +74,13 @@ plugins=(
 )
 
 
-source $ZSH/oh-my-zsh.sh
 
 # Setup for my own shell stuff
 if [ -f "$HOME/.envi_rc" ]; then
     source ~/.envi_rc
 fi
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -108,4 +122,8 @@ export ZSH_THEME_GIT_PROMPT_CACHE=yes
 # else
 #     echo "ng command not found. Skipping Angular CLI autocompletion."
 # fi
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.                                                                        │
+source /home/linuxbrew/.linuxbrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh                                                                                            │
