@@ -84,8 +84,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -99,8 +97,11 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+# SSH Agent - start if not already running
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval "$(ssh-agent -s)" > /dev/null
+fi
+
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -116,12 +117,7 @@ source $ZSH/oh-my-zsh.sh
 # specifically for themes that display Git repository information directly in the command prompt.
 export ZSH_THEME_GIT_PROMPT_CACHE=yes
 
-# Load Angular CLI autocompletion.
-# if command -v ng > /dev/null 2>&1; then
-#     source <(ng completion script)
-# else
-#     echo "ng command not found. Skipping Angular CLI autocompletion."
-# fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.                                                                        │
 source /home/linuxbrew/.linuxbrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
