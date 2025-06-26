@@ -119,7 +119,8 @@ export ZSH_THEME_GIT_PROMPT_CACHE=yes
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# Check for different Powerlevel10k installation paths
+# Check for different Powerlevel10k installation paths across different operating systems
+# This ensures compatibility with macOS (both Intel and Apple Silicon) and Linux systems
 if [[ -f /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
     # macOS with Apple Silicon (M1/M2) Homebrew
     source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
