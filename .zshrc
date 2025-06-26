@@ -118,8 +118,20 @@ fi
 export ZSH_THEME_GIT_PROMPT_CACHE=yes
 
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.                                                                        │
-source /home/linuxbrew/.linuxbrew/share/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# Check for different Powerlevel10k installation paths
+if [[ -f /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+    # macOS with Apple Silicon (M1/M2) Homebrew
+    source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+elif [[ -f /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+    # macOS with Intel Homebrew
+    source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
+elif [[ -f /home/linuxbrew/.linuxbrew/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+    # Linux with Linuxbrew
+    source /home/linuxbrew/.linuxbrew/share/powerlevel10k/powerlevel10k.zsh-theme
+elif [[ -f ${ZSH_CUSTOM:-$ZSH/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+    # Oh My Zsh custom theme installation
+    source ${ZSH_CUSTOM:-$ZSH/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme
+fi
 
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh                                                                                            │
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
