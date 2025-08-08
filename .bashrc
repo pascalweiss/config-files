@@ -65,3 +65,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 if [ -f "~/.envi_rc" ]; then
     echo source ~/.envi_rc
 fi
+
+# Envi post-initialization (tmux auto-start, etc.)
+if [ -f "$ENVI_HOME/executables/sbin/envi_post_init" ]; then
+    source "$ENVI_HOME/executables/sbin/envi_post_init"
+fi

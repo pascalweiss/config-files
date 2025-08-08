@@ -97,12 +97,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# SSH Agent - start if not already running
-if [ -z "$SSH_AUTH_SOCK" ]; then
-    eval "$(ssh-agent -s)" > /dev/null
-fi
-
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -112,27 +106,31 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# An environment variable used in the Oh My Zsh framework for Zsh (the Z shell).
-# This variable is related to the Git prompt integration within certain Zsh themes,
-# specifically for themes that display Git repository information directly in the command prompt.
+# Git prompt cache optimization for Oh My Zsh themes
 export ZSH_THEME_GIT_PROMPT_CACHE=yes
 
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# Check for different Powerlevel10k installation paths across different operating systems
-# This ensures compatibility with macOS (both Intel and Apple Silicon) and Linux systems
-if [[ -f /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
-    # macOS with Apple Silicon (M1/M2) Homebrew
-    source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-elif [[ -f /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
-    # macOS with Intel Homebrew
-    source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
-elif [[ -f /home/linuxbrew/.linuxbrew/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
-    # Linux with Linuxbrew
-    source /home/linuxbrew/.linuxbrew/share/powerlevel10k/powerlevel10k.zsh-theme
-elif [[ -f ${ZSH_CUSTOM:-$ZSH/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme ]]; then
-    # Oh My Zsh custom theme installation
-    source ${ZSH_CUSTOM:-$ZSH/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme
+# Powerlevel10k theme detection (controlled by POWERLEVEL10K_ENABLED)
+if [ "$POWERLEVEL10K_ENABLED" = "true" ]; then
+    # Check for different Powerlevel10k installation paths across different operating systems
+    if [[ -f /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+        # macOS with Apple Silicon (M1/M2) Homebrew
+        source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+    elif [[ -f /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+        # macOS with Intel Homebrew
+        source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
+    elif [[ -f /home/linuxbrew/.linuxbrew/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+        # Linux with Linuxbrew
+        source /home/linuxbrew/.linuxbrew/share/powerlevel10k/powerlevel10k.zsh-theme
+    elif [[ -f ${ZSH_CUSTOM:-$ZSH/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+        # Oh My Zsh custom theme installation
+        source ${ZSH_CUSTOM:-$ZSH/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme
+    fi
 fi
 
+# Load p10k configuration
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Envi post-initialization (tmux auto-start, etc.)
+if [ -f "$ENVI_HOME/executables/sbin/envi_post_init" ]; then
+    source "$ENVI_HOME/executables/sbin/envi_post_init"
+fi
